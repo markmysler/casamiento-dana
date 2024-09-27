@@ -9,9 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@chenfengyuan/vue-countdown": "^2.1.2",
     "primeicons": "^7.0.0",
     "primevue": "^3.53.0",
-    "vue": "^3.4.37",
+    "vue": "^3.5.10",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
