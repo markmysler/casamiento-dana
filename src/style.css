@@ -1,0 +1,51 @@
+/* General */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  scroll-behavior: smooth;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background-color: #f5f9e8;
+  color: #8D8F7B;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+header,
+main,
+footer {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.375rem;
+  font-weight: 600;
+}
+
+.botonPrimario {
+  background-color: #777751;
+  border: 1px solid #919275;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #C0C1A3;
+  padding: 0.5rem 3rem;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.columnAlignCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

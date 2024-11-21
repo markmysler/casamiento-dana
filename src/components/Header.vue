@@ -1,11 +1,32 @@
 <template>
     <header class="text-center">
-        <h1>CASAMIENTO DANA E IVAN</h1>
-        <div class="flex gap-2 mb-2">
-                <a href="#presentation">Presentacion</a>
-                <a href="#information">Informacion</a>
-                <a href="#rsvp1">Rsvp 1</a>
-                <a href="#rsvp2">Rsvp 2</a>
-        </div>
+        <ul>
+            <li><a href="#home">HOME</a></li>
+            <li>•</li>
+            <li><a href="#information">INFORMACIÓN</a></li>
+            <li>•</li>
+            <li><a href="#confirmation">CONFIRMACIÓN</a></li>
+        </ul>
     </header>
 </template>
+
+<style scoped>
+header {
+    width: 100%;
+    padding: 1.5rem 1.25rem;
+}
+
+header ul {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+}
+
+a {
+    text-decoration: none;
+    font-size: 0.625rem;
+    font-weight: 800;
+    color: #8D8F7B;
+}
+</style>
