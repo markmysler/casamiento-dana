@@ -31,16 +31,22 @@ export default {
 <style scoped>
 section {
   gap: 0.5rem;
-  background-color: #F5F8ED;
   padding: 1.875rem 0;
 }
 
 h2 {
+  color: #8C8C56;
+  line-height: 160%;
   margin-bottom: 0.75rem;
+}
+
+h2 span {
+  font-family: "Gyahegi", sans-serif;
 }
 
 p {
   font-size: 0.75rem;
   font-weight: 600;
+  color: #8C8C56;
 }
 </style>

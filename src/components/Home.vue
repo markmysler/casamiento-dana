@@ -7,19 +7,20 @@
 
 <style scoped>
     section {
+        height: 95dvh;
         position: relative;
-        background-color: #818150;
-        padding: 14rem 0 18rem 0;
+        background-color: #8C8C56;
+        padding: 2rem 0 15rem 0;
     }
 
     h1 {
         width: max-content;
         position: absolute;
-        left: 50%;
+        left: 45%;
         top: 45%;
         transform: translate(-50%, -50%) rotate(270deg);
-        font-size: 4rem;
-        color: #FFFFF5;
+        font-size: 3.7rem;
+        color: #F5F9ED;
     }
 
     p {
@@ -29,8 +30,8 @@
         right: 0;
         text-align: center;
         font-size: 0.8rem;
-        font-weight: 600;
-        color: rgba(255, 255, 245, 0.8);
+        font-weight: 500;
+        color: #F5F9ED;
         margin: 0 auto;
     }
 </style>

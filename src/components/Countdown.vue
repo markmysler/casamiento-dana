@@ -75,8 +75,8 @@ export default {
 
 <style scoped>
 section {
-  background-color: #B6AD90;
-  border: 4px solid #DCD7C3;
+  background-color: #BCB398;
+  border-top: 4px solid #D9D6C3;
   border-right: 0;
   border-left: 0;
   padding: 1.5rem;
@@ -93,17 +93,19 @@ section {
   height: 4rem;
   justify-content: center;
   text-align: center;
-  background-color: #BCB49D;
+  background-color: rgba(217, 214, 195, 0.5);
   border-radius: 10px;
   padding: 0.5rem;
 }
 
 .time p {
-  color: #E7E3CF;
+  color: #F5F9ED;
   font-size: 0.625rem;
 }
 
 .time p span {
   font-size: 1.3rem;
+  font-family: "Playfair Display", serif;
+  margin-bottom: 0.3rem;
 }
 </style>

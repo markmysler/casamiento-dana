@@ -146,7 +146,7 @@ export default {
 .formAssistance input {
     width: 100%;
     background: none;
-    border: 1px solid #AEB3A2;
+    border: 1px solid #545438;
     border-radius: 999px;
     padding: 0.35rem 1rem;
 }
@@ -172,6 +172,7 @@ label,
 p {
     font-weight: 600;
     font-size: 0.75rem;
+    color: #545438;
 }
 
 .radioContainer {

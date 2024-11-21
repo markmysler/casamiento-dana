@@ -26,7 +26,7 @@ header ul {
 a {
     text-decoration: none;
     font-size: 0.625rem;
-    font-weight: 800;
-    color: #8D8F7B;
+    font-weight: 700;
+    color: #545438;
 }
 </style>

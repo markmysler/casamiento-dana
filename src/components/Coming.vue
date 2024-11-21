@@ -12,18 +12,18 @@
 <style scoped>
 section {
   gap: 0.5rem;
-  background-color: #EBEEE3;
+  background-color: rgba(217, 214, 195, 0.4);
   padding: 2rem 0;
 }
 
 h2 {
+  color: #8C8C56;
   margin-bottom: 1rem;
 }
 
 p {
-  color: #AEB1A1;
+  color: #8C8C56;
   font-size: 0.75rem;
-  font-weight: 700;
 }
 
 button {

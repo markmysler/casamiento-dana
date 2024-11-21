@@ -1,17 +1,28 @@
 /* General */
 
+@font-face {
+  font-family: "Gyahegi";
+  src: url("/src/assets/Gyahegi.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1, h2 {
+  font-family: "Gyahegi", sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   list-style: none;
   scroll-behavior: smooth;
-  font-family: "Inter", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
-  background-color: #f5f9e8;
-  color: #8D8F7B;
+  background-color: #F5F9ED;
+  color: #8C8C56;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
@@ -25,17 +36,17 @@ footer {
 
 h2 {
   text-align: center;
-  font-size: 2.375rem;
+  font-size: 2.25rem;
   font-weight: 600;
 }
 
 .botonPrimario {
-  background-color: #777751;
+  background-color: #8C8C56;
   border: 1px solid #919275;
   border-radius: 999px;
   font-size: 0.75rem;
   font-weight: 600;
-  color: #C0C1A3;
+  color: #F5F9ED;
   padding: 0.5rem 3rem;
 }
 
