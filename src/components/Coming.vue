@@ -1,6 +1,6 @@
 <template>
-  <section class="columnAlignCenter">
-    <h2>¿Venís?</h2>
+  <section class="columnAlignCenter" id="confirmation">
+    <h2>¿<span>Venís</span> ?</h2>
     <p class="text-center">
       NOS ENCANTARÍA COMPARTIRLO CON VOS
     </p>
@@ -16,14 +16,22 @@ section {
   padding: 2rem 0;
 }
 
-h2 {
+h2{
+  font-family:'Times New Roman', Times, serif;
+  margin-bottom: 0.5rem;
+}
+
+h2 span{
+  font-family: "Gyahegi", sans-serif;
+  text-align: center;
+  font-size: 2.25rem;
+  font-weight: 600;
   color: #8C8C56;
-  margin-bottom: 1rem;
 }
 
 p {
   color: #8C8C56;
-  font-size: 0.75rem;
+  font-size: 0.79rem;
 }
 
 button {

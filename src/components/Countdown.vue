@@ -1,17 +1,25 @@
 <template>
   <section>
     <div class="timesContainer" v-if="timeRemaining">
-      <div class="time columnAlignCenter">
-        <p class="column"><span>{{ timeRemaining.days }}</span>Dias</p>
+      <div class="timebox">
+        <div class="time columnAlignCenter">
+          <p class="column"><span>{{ timeRemaining.days }}</span>Días</p>
+        </div>
       </div>
-      <div class="time columnAlignCenter">
-        <p class="column"><span>{{ timeRemaining.hours }}</span>Dias</p>
+      <div class="timebox">
+        <div class="time columnAlignCenter">
+          <p class="column"><span>{{ timeRemaining.hours }}</span>Horas</p>
+        </div>
       </div>
-      <div class="time columnAlignCenter">
-        <p class="column"><span>{{ timeRemaining.minutes }}</span>Dias</p>
+      <div class="timebox">
+        <div class="time columnAlignCenter">
+          <p class="column"><span>{{ timeRemaining.minutes }}</span>Minutos</p>
+        </div>
       </div>
-      <div class="time columnAlignCenter">
-        <p class="column"><span>{{ timeRemaining.seconds }}</span>Dias</p>
+      <div class="timebox">
+        <div class="time columnAlignCenter">
+          <p class="column"><span>{{ timeRemaining.seconds }}</span>Segundos</p>
+        </div>
       </div>
     </div>
   </section>
@@ -79,33 +87,35 @@ section {
   border-top: 4px solid #D9D6C3;
   border-right: 0;
   border-left: 0;
-  padding: 1.5rem;
+  padding: 1.9rem 1.5rem;
 }
 
 .timesContainer {
   display: flex;
-  justify-content: space-between;
-  gap: 0.75rem;
+  justify-content: center;
+  gap: 1rem;
 }
 
-.time {
-  width: 3.625rem;
-  height: 4rem;
-  justify-content: center;
-  text-align: center;
+.timebox{
+  width: 4.5rem;
+  height: 4.5rem;
   background-color: rgba(217, 214, 195, 0.5);
   border-radius: 10px;
-  padding: 0.5rem;
+  padding: 0.2rem 0.5rem 0.5rem 0.5rem;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
 }
 
 .time p {
   color: #F5F9ED;
-  font-size: 0.625rem;
+  font-size: 0.82rem;
 }
 
 .time p span {
-  font-size: 1.3rem;
+  font-size: 1.9rem;
+  height: 100%;
   font-family: "Playfair Display", serif;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.1rem;
 }
 </style>

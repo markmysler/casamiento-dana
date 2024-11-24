@@ -17,7 +17,7 @@
 
 <style scoped>
 section {
-  gap: 1.25rem;
+  gap: 0.7rem;
   background-color: #545438;
   border-top: 4px solid #888468;
   padding: 1.5rem 1.25rem;
@@ -25,6 +25,7 @@ section {
 
 h2 {
   color: #F5F9ED;
+  font-weight: lighter;
 }
 
 div:first-of-type {
@@ -33,12 +34,13 @@ div:first-of-type {
 
 p {
   color: #F5F9ED;
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   font-weight: 400;
+  margin-bottom: 0.9rem;
 }
 
 p:first-of-type {
-  font-size: 0.8rem;
+  font-size: 1rem;
   margin-bottom: 0.35rem;
 }
 

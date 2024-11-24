@@ -2,11 +2,11 @@
     <section>
         <form @submit.prevent="enviarRsvp" class="formAssistance column">
             <div>
-                <label for="nombre">NOMBRE</label>
+                <label for="nombre" class="tituloPregunta">NOMBRE</label>
                 <AutoComplete id="nombre" :suggestions="invitados" @complete="search" v-model="formulario.nombre" />
             </div>
             <div>
-                <p>¿CONFIRMÁS TU ASISTENCIA?</p>
+                <p class="tituloPregunta">¿CONFIRMÁS TU ASISTENCIA?</p>
                 <div>
                     <div class="radioContainer">
                         <RadioButton inputId="si" name="asistencia" v-model="formulario.asistencia" value="si" />
@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div>
-                <p>RESTRICCIÓN ALIMENTARIA</p>
+                <p class="tituloPregunta">RESTRICCIÓN ALIMENTARIA</p>
                 <div>
                     <div class="radioContainer">
                         <RadioButton inputId="ninguna" name="restriccion" v-model="formulario.restriccion"
@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div>
-                <p>¿USARÍAS MICRO?</p>
+                <p class="tituloPregunta">¿USARÍAS MICRO?</p>
                 <div>
                     <div class="radioContainer">
                         <RadioButton inputId="si" name="micro" v-model="formulario.micro" value="si" />
@@ -61,11 +61,11 @@
                 </div>
             </div>
             <div>
-                <label for="pregunta">¿TENÉS ALGUNA PREGUNTA?</label>
+                <label for="pregunta" class="tituloPregunta">¿TENÉS ALGUNA PREGUNTA?</label>
                 <input type="text" id="pregunta">
             </div>
             <div>
-                <label for="confirmarFamiliar">CONFIRMAR POR UN FAMILIAR</label>
+                <label for="confirmarFamiliar" class="tituloPregunta">CONFIRMAR POR UN FAMILIAR</label>
                 <input type="text" id="confirmarFamiliar">
             </div>
             <!-- TO DO - REVISAR -->
@@ -150,6 +150,13 @@ export default {
     border-radius: 999px;
     padding: 0.35rem 1rem;
 }
+.p-radiobutton-box:checked{
+    border: 1px solid #2196F3 !important;
+    background: none;
+}
+.p-radiobutton-input:not(:checked) ~ .p-radiobutton-box{
+    border: 1px solid #545438;
+}
 </style>
 
 <style scoped>
@@ -170,9 +177,15 @@ form div {
 
 label,
 p {
-    font-weight: 600;
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     color: #545438;
+    letter-spacing: 0.06rem;
+}
+
+.tituloPregunta{
+    font-size: 0.85rem;
+    font-weight: 600;
+
 }
 
 .radioContainer {
@@ -188,6 +201,7 @@ button {
 img {
     width: 100%;
     height: 100%;
+    vertical-align: bottom;
     object-fit: cover;
 }
 </style>

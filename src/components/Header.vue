@@ -2,9 +2,9 @@
     <header class="text-center">
         <ul>
             <li><a href="#home">HOME</a></li>
-            <li>•</li>
+            <li class="separator">•</li>
             <li><a href="#information">INFORMACIÓN</a></li>
-            <li>•</li>
+            <li class="separator">•</li>
             <li><a href="#confirmation">CONFIRMACIÓN</a></li>
         </ul>
     </header>
@@ -19,14 +19,19 @@ header {
 header ul {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
     gap: 1.25rem;
 }
 
 a {
     text-decoration: none;
-    font-size: 0.625rem;
+    font-size: 0.65rem;
     font-weight: 700;
     color: #545438;
+}
+
+.separator{
+    margin-top: 0.2rem;
 }
 </style>

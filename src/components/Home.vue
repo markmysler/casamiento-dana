@@ -1,37 +1,49 @@
 <template>
     <section id="home">
-        <h1>Dana & Ivan</h1>
-        <p>¡NOS CASAMOS!</p>
+        <div class="homeContainer">
+            <h1>Dana&nbsp;&&nbsp;Ivan</h1>
+            <p>¡NOS CASAMOS!</p>
+        </div>
     </section>
 </template>
 
 <style scoped>
     section {
-        height: 95dvh;
-        position: relative;
+        height: 37.5rem;
         background-color: #8C8C56;
-        padding: 2rem 0 15rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     h1 {
         width: max-content;
         position: absolute;
-        left: 45%;
-        top: 45%;
+        left: 47%;
+        top: 43.5%;
         transform: translate(-50%, -50%) rotate(270deg);
-        font-size: 3.7rem;
+        vertical-align: bottom;
+        font-size: 3.1rem;
+        font-weight: lighter;
         color: #F5F9ED;
     }
 
     p {
         position: absolute;
-        bottom: 10%;
+        bottom: 12%;
         left: 0;
         right: 0;
         text-align: center;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         font-weight: 500;
         color: #F5F9ED;
         margin: 0 auto;
+        letter-spacing: 0.09rem;
+    }
+    .homeContainer{
+        width: 30rem;
+        height: 37.5rem;
+        position: relative;
+
     }
 </style>

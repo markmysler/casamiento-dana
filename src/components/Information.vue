@@ -1,12 +1,15 @@
 <template>
   <section class="columnAlignCenter" id="information">
     <h2 class="column">Forever <span>& Always</span></h2>
-    <p class="text-center">23 DE FEBRERO DEL 2025 | 11:30 HS</p>
     <div>
-      <button class="botonPrimario" @click="addToGoogleCalendar">
-        AGENDAR
-      </button>
+      <p class="text-center">23 DE FEBRERO DEL 2025 | 11:30 HS</p>
+      <div>
+        <button class="botonPrimario" @click="addToGoogleCalendar">
+          AGENDAR
+        </button>
+      </div>
     </div>
+    
   </section>
 </template>
 
@@ -30,14 +33,22 @@ export default {
 
 <style scoped>
 section {
-  gap: 0.5rem;
+  gap: 2.4rem;
   padding: 1.875rem 0;
+}
+
+section > div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
 }
 
 h2 {
   color: #8C8C56;
   line-height: 160%;
-  margin-bottom: 0.75rem;
+  font-weight: lighter;
 }
 
 h2 span {
@@ -45,8 +56,10 @@ h2 span {
 }
 
 p {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: #8C8C56;
+  font-weight: lighter;
+  word-spacing: 0.15rem;
 }
 </style>
