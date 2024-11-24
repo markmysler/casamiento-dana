@@ -180,6 +180,7 @@ p {
     font-size: 0.85rem;
     color: #545438;
     letter-spacing: 0.06rem;
+    background: none;
 }
 
 .tituloPregunta{
