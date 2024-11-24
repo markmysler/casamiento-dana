@@ -156,6 +156,7 @@ export default {
 }
 .p-radiobutton-input:not(:checked) ~ .p-radiobutton-box{
     border: 1px solid #545438;
+    background: none;
 }
 </style>
 
@@ -180,7 +181,6 @@ p {
     font-size: 0.85rem;
     color: #545438;
     letter-spacing: 0.06rem;
-    background: none;
 }
 
 .tituloPregunta{
