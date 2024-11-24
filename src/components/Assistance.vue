@@ -163,6 +163,7 @@ export default {
 <style scoped>
 section {
     padding: 0;
+    z-index: 1;
 }
 
 form {

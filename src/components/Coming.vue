@@ -5,15 +5,27 @@
       NOS ENCANTARÍA COMPARTIRLO CON VOS
     </p>
     <!-- TO DO - REVISAR -->
-    <button class="botonPrimario">CONFIRMAR ASISTENCIA</button>
+    <button class="botonPrimario" @click="toggleShowForm()">CONFIRMAR ASISTENCIA</button>
   </section>
 </template>
+
+<script>
+export default {
+  props:{
+    toggleShowForm:{
+      type: Function,
+      required: true
+    }
+  }
+}
+</script>
 
 <style scoped>
 section {
   gap: 0.5rem;
   background-color: rgba(217, 214, 195, 0.4);
   padding: 2rem 0;
+  z-index: 100;
 }
 
 h2{
