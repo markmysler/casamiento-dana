@@ -80,5 +80,6 @@ function toggleShowForm() {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	overflow-x: hidden;
 }
 </style>
