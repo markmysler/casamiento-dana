@@ -12,9 +12,11 @@
 			class="hidden-section"
 		/>
 	</transition>
+	<img :src="footerSrc" alt="Footer" id="footerImg" />
 </template>
 
 <script setup>
+import footerSrc from "./assets/footer.svg";
 import Header from "./components/Header.vue";
 import Home from "./components/Home.vue";
 import Information from "./components/Information.vue";
@@ -73,5 +75,10 @@ function toggleShowForm() {
 .fade-leave-to {
 	opacity: 0;
 	transform: translateY(-10px);
+}
+#app {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 </style>

@@ -41,7 +41,6 @@
 				Enviar
 			</button>
 		</form>
-		<img src="/src/assets/final.png" alt="" />
 	</section>
 </template>
 

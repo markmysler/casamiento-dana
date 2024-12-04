@@ -5,6 +5,7 @@
 		<button class="botonPrimario" @click="handleClick">
 			{{ isOpen ? "CANCELAR" : "CONFIRMAR ASISTENCIA" }}
 		</button>
+		<img src="../assets/plants_left .svg" alt="Plantas decorativas" />
 	</section>
 </template>
 
@@ -31,9 +32,13 @@ export default {
 <style scoped>
 section {
 	gap: 0.5rem;
-	background-color: rgba(217, 214, 195, 0.4);
 	padding: 2rem 0;
 	z-index: 100;
+	position: relative;
+	background-image: url("../assets/background.svg");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
 }
 
 h2 {
@@ -57,5 +62,14 @@ p {
 button {
 	padding: 0.5rem 0.625rem;
 	min-width: 10rem;
+	cursor: pointer;
+}
+
+img {
+	position: absolute;
+	left: 0;
+	top: 20%;
+	z-index: 100;
+	height: 8rem;
 }
 </style>
