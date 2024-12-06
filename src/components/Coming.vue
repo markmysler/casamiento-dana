@@ -5,7 +5,8 @@
 		<button class="botonPrimario" @click="handleClick">
 			{{ isOpen ? "CANCELAR" : "CONFIRMAR ASISTENCIA" }}
 		</button>
-		<img src="../assets/plants_left .svg" alt="Plantas decorativas" />
+		<img class="plants" src="../assets/plants_left .svg" alt="Plantas decorativas" />
+		<img class="background" src="../assets/background.svg" alt="Fondo venis">
 	</section>
 </template>
 
@@ -32,21 +33,34 @@ export default {
 <style scoped>
 section {
 	gap: 0.5rem;
-	padding: 2rem 0;
-	z-index: 100;
 	position: relative;
-	background-image: url("../assets/background.svg");
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
+	z-index: 100;
+	padding: 2rem 0;
+	background: #F5F9ED;
+}
+
+.background {
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 0;
+	object-fit: cover;
+	background: #F5F9ED;
 }
 
 h2 {
+	position: relative;
+	z-index: 100;
 	font-family: "Times New Roman", Times, serif;
 	margin-bottom: 0.5rem;
 }
 
 h2 span {
+	position: relative;
+	z-index: 100;
 	font-family: "Gyahegi", sans-serif;
 	text-align: center;
 	font-size: 2.25rem;
@@ -55,21 +69,39 @@ h2 span {
 }
 
 p {
+	position: relative;
+	z-index: 100;
 	color: #8c8c56;
 	font-size: 0.79rem;
 }
 
 button {
+	position: relative;
+	z-index: 100;
 	padding: 0.5rem 0.625rem;
 	min-width: 10rem;
 	cursor: pointer;
 }
 
-img {
+.plants {
 	position: absolute;
 	left: 0;
-	top: 20%;
+	top: 35%;
 	z-index: 100;
-	height: 8rem;
+	height: 6rem;
+}
+
+@media (width >=480px) {
+	.plants {
+		height: 10rem;
+		top: 15%;
+	}
+}
+
+@media (width >=660px) {
+	.plants {
+		height: 12rem;
+		top: 5%;
+	}
 }
 </style>

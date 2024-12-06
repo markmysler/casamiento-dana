@@ -40,7 +40,7 @@ section {
 	position: relative;
 }
 
-section > div {
+section>div {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -49,6 +49,7 @@ section > div {
 }
 
 h2 {
+	font-size: 2rem;
 	color: #8c8c56;
 	line-height: 160%;
 	font-weight: lighter;
@@ -65,11 +66,26 @@ p {
 	font-weight: lighter;
 	word-spacing: 0.15rem;
 }
+
 img {
 	position: absolute;
-	right: -2%;
+	right: -10%;
 	bottom: -1%;
 	z-index: 100;
 	height: 25rem;
+}
+
+@media (width >=480px) {
+	img {
+		height: 30rem;
+		right: -5%;
+	}
+}
+
+@media (width >=660px) {
+	img {
+		height: 32.5em;
+		right: 0;
+	}
 }
 </style>

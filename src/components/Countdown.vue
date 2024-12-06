@@ -93,27 +93,33 @@ section {
 .timesContainer {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
-.timebox{
-  width: 4.5rem;
-  height: 4.5rem;
+.timebox {
+  width: 4rem;
+  min-width: 4rem;
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
   background-color: rgba(217, 214, 195, 0.5);
   border-radius: 10px;
   padding: 0.2rem 0.5rem 0.5rem 0.5rem;
-  justify-content: space-between;
-  text-align: center;
-  align-items: center;
+}
+
+.time {
+  width: 100%;
 }
 
 .time p {
   color: #F5F9ED;
-  font-size: 0.82rem;
+  font-size: 0.75rem;
 }
 
 .time p span {
-  font-size: 1.9rem;
+  font-size: 1.5rem;
   height: 100%;
   font-family: "Playfair Display", serif;
   margin-bottom: 0.1rem;
