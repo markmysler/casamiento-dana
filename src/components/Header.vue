@@ -31,7 +31,35 @@ a {
     color: #545438;
 }
 
-.separator{
+.separator {
     margin-top: 0.2rem;
+}
+
+@media (width >=480px) {
+    a {
+        font-size: 0.75rem;
+    }
+}
+
+@media (width >=660px) {
+    a {
+        font-size: 0.875rem;
+    }
+}
+
+@media (width >=900px) {
+    a {
+        font-size: 1rem;
+    }
+}
+
+@media (width >=1080px) {
+    header {
+        padding: 2rem 1.5rem;
+    }
+
+    a {
+        font-size: 1.125rem;
+    }
 }
 </style>

@@ -4,22 +4,10 @@
 		<label for="nombre" class="tituloPregunta">{{
 			index == 0 ? "NOMBRE" : `NOMBRE FAMILIAR ${index}`
 		}}</label>
-		<AutoComplete
-			inputId="nombre"
-			:suggestions="localInvitados"
-			@complete="updateInvitados"
-			v-model="localFormulario.nombre"
-		/>
-		<Button
-			icon="pi pi-times"
-			severity="danger"
-			text
-			rounded
-			aria-label="Cancel"
-			class="removeButton"
-			@click="$emit('remove', index)"
-			v-if="index != 0"
-		/>
+		<AutoComplete inputId="nombre" :suggestions="localInvitados" @complete="updateInvitados"
+			v-model="localFormulario.nombre" />
+		<Button icon="pi pi-times" severity="danger" text rounded aria-label="Cancel" class="removeButton"
+			@click="$emit('remove', index)" v-if="index != 0" />
 	</div>
 	<div>
 		<p class="tituloPregunta">
@@ -31,19 +19,11 @@
 		</p>
 		<div>
 			<div class="radioContainer">
-				<RadioButton
-					inputId="si"
-					v-model="localFormulario.asistencia"
-					value="si"
-				/>
+				<RadioButton inputId="si" v-model="localFormulario.asistencia" value="si" />
 				<label for="si">Sí</label>
 			</div>
 			<div class="radioContainer">
-				<RadioButton
-					inputId="no"
-					v-model="localFormulario.asistencia"
-					value="no"
-				/>
+				<RadioButton inputId="no" v-model="localFormulario.asistencia" value="no" />
 				<label for="no">No</label>
 			</div>
 		</div>
@@ -52,35 +32,19 @@
 		<p class="tituloPregunta">RESTRICCIÓN ALIMENTARIA</p>
 		<div>
 			<div class="radioContainer">
-				<RadioButton
-					inputId="ninguna"
-					v-model="localFormulario.restriccion"
-					value="ninguna"
-				/>
+				<RadioButton inputId="ninguna" v-model="localFormulario.restriccion" value="ninguna" />
 				<label for="ninguna">Ninguna</label>
 			</div>
 			<div class="radioContainer">
-				<RadioButton
-					inputId="celiaco"
-					v-model="localFormulario.restriccion"
-					value="celiaco"
-				/>
+				<RadioButton inputId="celiaco" v-model="localFormulario.restriccion" value="celiaco" />
 				<label for="celiaco">Celíaco</label>
 			</div>
 			<div class="radioContainer">
-				<RadioButton
-					inputId="vegetariano"
-					v-model="localFormulario.restriccion"
-					value="vegetariano"
-				/>
+				<RadioButton inputId="vegetariano" v-model="localFormulario.restriccion" value="vegetariano" />
 				<label for="vegetariano">Vegetariano</label>
 			</div>
 			<div class="radioContainer">
-				<RadioButton
-					inputId="kosher"
-					v-model="localFormulario.restriccion"
-					value="kosher"
-				/>
+				<RadioButton inputId="kosher" v-model="localFormulario.restriccion" value="kosher" />
 				<label for="kosher">Kosher</label>
 			</div>
 		</div>
@@ -91,27 +55,15 @@
 		</p>
 		<div>
 			<div class="radioContainer">
-				<RadioButton
-					inputId="si"
-					v-model="localFormulario.micro"
-					value="si"
-				/>
+				<RadioButton inputId="si" v-model="localFormulario.micro" value="si" />
 				<label for="si">Sí</label>
 			</div>
 			<div class="radioContainer">
-				<RadioButton
-					inputId="no"
-					v-model="localFormulario.micro"
-					value="no"
-				/>
+				<RadioButton inputId="no" v-model="localFormulario.micro" value="no" />
 				<label for="no">No</label>
 			</div>
 			<div class="radioContainer">
-				<RadioButton
-					inputId="nose"
-					v-model="localFormulario.micro"
-					value="nose"
-				/>
+				<RadioButton inputId="nose" v-model="localFormulario.micro" value="nose" />
 				<label for="nose">Todavía no sé</label>
 			</div>
 		</div>
@@ -196,10 +148,31 @@ p {
 .nameInput {
 	position: relative;
 }
+
 .removeButton {
 	height: min-content;
 	position: absolute;
 	top: 1.7rem;
 	right: 0.5rem;
+}
+
+@media (width >=600px) {
+	.nameInput, div {
+		gap: 0.5rem;
+	}
+
+	label, p {
+		font-size: 1rem;
+	}
+}
+
+@media (width >=900px) {
+	.nameInput, div {
+		gap: 0.75rem;
+	}
+
+	label, p {
+		font-size: 1.125rem;
+	}
 }
 </style>

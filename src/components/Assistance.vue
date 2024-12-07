@@ -167,7 +167,9 @@ section {
 }
 
 form {
+	max-width: 500px;
 	gap: 1rem;
+	margin: 0 auto;
 	padding: 1.75rem 1.25rem;
 }
 
@@ -197,5 +199,41 @@ img {
 	height: 100%;
 	vertical-align: bottom;
 	object-fit: cover;
+}
+
+@media (width >=480px) {
+	form {
+		max-width: 600px;
+		padding: 2rem;
+	}
+}
+
+@media (width >=600px) {
+	label {
+		font-size: 1rem;
+	}
+
+	form div {
+		gap: 0.5rem;
+	}
+}
+
+@media (width >=900px) {
+	section {
+		padding: 3rem 0;
+	}
+
+	form {
+		max-width: 700px;
+		padding: 3rem;
+	}
+
+	label {
+		font-size: 1.125rem;
+	}
+
+	form div {
+		gap: 0.75rem;
+	}
 }
 </style>

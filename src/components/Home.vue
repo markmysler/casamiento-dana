@@ -76,14 +76,18 @@ p {
 
 @media (width >=480px) {
 	.plants {
-		height: 15em;
+		height: 15rem;
 		top: 5%;
 	}
 }
 
 @media (width >=660px) {
+	p {
+		font-size: 1rem;
+	}
+
 	.plants {
-		height: 20em;
+		height: 20rem;
 	}
 }
 
@@ -108,6 +112,24 @@ p {
 
 	p {
 		font-size: 1.375rem;
+	}
+}
+
+@media (width >=1080px) {
+	#home {
+		height: 42rem;
+	}
+
+	.homeContainer {
+		height: 100%;
+	}
+
+	h1 {
+		font-size: 4.5rem;
+	}
+
+	p {
+		font-size: 1.5rem;
 	}
 }
 </style>

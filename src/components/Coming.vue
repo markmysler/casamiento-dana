@@ -92,6 +92,14 @@ button {
 }
 
 @media (width >=480px) {
+	p {
+		font-size: 0.875rem;
+	}
+
+	button {
+    padding: 0.75rem 1rem;
+	}
+
 	.plants {
 		height: 10rem;
 		top: 15%;
@@ -102,6 +110,53 @@ button {
 	.plants {
 		height: 12rem;
 		top: 5%;
+	}
+}
+
+@media (width >=900px) {
+	section {
+		gap: 1.25rem;
+	}
+
+	h2, h2 span {
+		font-size: 2.5rem;
+		margin-bottom: 0;
+	}
+
+	p {
+		font-size: 1rem;
+	}
+
+	button {
+		padding: 0.75rem 2rem;
+	}
+
+	.plants {
+		height: 15rem;
+		top: 0;
+	}
+}
+
+@media (width >=1080px) {
+	section {
+		padding: 3rem 0;
+	}
+
+	h2, h2 span {
+		font-size: 2.75rem;
+	}
+
+	p {
+		font-size: 1.25rem;
+	}
+
+	button {
+		padding: 1rem 2.5rem;
+	}
+
+	.plants {
+		height: 18rem;
+		top: -5%;
 	}
 }
 </style>

@@ -124,4 +124,62 @@ section {
   font-family: "Playfair Display", serif;
   margin-bottom: 0.1rem;
 }
+
+@media (width >=480px) {
+  .timebox {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .time p {
+    font-size: 0.875rem;
+  }
+
+  .time p span {
+    font-size: 1.75rem;
+  }
+}
+
+@media (width >=900px) {
+  section {
+    border-width: 8px;
+  }
+
+  .timesContainer {
+    gap: 1.5rem;
+  }
+  
+	.timebox {
+		width: 7rem;
+		height: 7rem;
+    border-radius: 18px;
+	}
+
+  .time p {
+    font-size: 1.25rem;
+  }
+
+  .time p span {
+    font-size: 2.5rem;
+  }
+}
+
+@media (width >=1080px) {
+  section {
+    padding: 3rem 0;
+  }
+
+  .timebox {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  .time p {
+    font-size: 1.5rem;
+  }
+
+  .time p span {
+    font-size: 3rem;
+  }
+}
 </style>

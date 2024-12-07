@@ -76,6 +76,10 @@ img {
 }
 
 @media (width >=480px) {
+	p {
+		font-size: 0.9rem;
+	}
+
 	img {
 		height: 30rem;
 		right: -5%;
@@ -83,9 +87,46 @@ img {
 }
 
 @media (width >=660px) {
+	p {
+		font-size: 1rem;
+	}
+
 	img {
 		height: 32.5em;
 		right: 0;
+	}
+}
+
+@media (width >=900px) {
+  h2 {
+    font-size: 2.5rem;
+  }
+
+	section div {
+		gap: 2rem;
+	}
+
+	p {
+		font-size: 1.25rem;
+	}
+
+	img {
+		height: 38rem;
+		top: -17rem;
+	}
+}
+
+@media (width >=1080px) {
+	section {
+		padding: 3rem 0;
+	}
+
+	h2 {
+		font-size: 2.75rem;
+	}
+
+	p {
+		font-size: 1.5rem;
 	}
 }
 </style>
