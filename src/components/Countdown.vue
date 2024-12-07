@@ -182,4 +182,24 @@ section {
     font-size: 3rem;
   }
 }
+
+@media (width >=1440px) {
+  section {
+    padding: 4rem 0;
+  }
+
+  .timebox {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 25px;
+  }
+
+  .time p {
+    font-size: 1.75rem;
+  }
+
+  .time p span {
+    font-size: 3.5rem;
+  }
+}
 </style>

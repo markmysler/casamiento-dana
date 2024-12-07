@@ -175,4 +175,14 @@ p {
 		font-size: 1.125rem;
 	}
 }
+
+@media (width >=1440px) {
+	.nameInput, div {
+		gap: 1rem;
+	}
+
+	label, p {
+		font-size: 1.25rem;
+	}
+}
 </style>

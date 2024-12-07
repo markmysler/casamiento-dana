@@ -37,6 +37,7 @@ section {
 	z-index: 100;
 	padding: 2rem 0;
 	background: #F5F9ED;
+	border-top: 4px solid #9ea08d;
 }
 
 .background {
@@ -116,6 +117,7 @@ button {
 @media (width >=900px) {
 	section {
 		gap: 1.25rem;
+		border-width: 8px;
 	}
 
 	h2, h2 span {
@@ -157,6 +159,29 @@ button {
 	.plants {
 		height: 18rem;
 		top: -5%;
+	}
+}
+
+@media (width >=1440px) {
+	section {
+		padding: 4rem 0;
+	}
+
+	h2, h2 span {
+		font-size: 3rem;
+	}
+
+	p {
+		font-size: 1.5rem;
+	}
+
+	button {
+		padding: 1.25rem 3rem;
+	}
+
+	.plants {
+		height: 20rem;
+		top: 5%;
 	}
 }
 </style>

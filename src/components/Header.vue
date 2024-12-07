@@ -21,12 +21,12 @@ header ul {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    gap: 1.25rem;
+    gap: 0.5rem;
 }
 
 a {
     text-decoration: none;
-    font-size: 0.65rem;
+    font-size: 0.825rem;
     font-weight: 700;
     color: #545438;
 }
@@ -60,6 +60,16 @@ a {
 
     a {
         font-size: 1.125rem;
+    }
+}
+
+@media (width >=1440px) {
+    header {
+        padding: 2.5rem 2rem;
+    }
+
+    a {
+        font-size: 1.25rem;
     }
 }
 </style>

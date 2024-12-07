@@ -132,4 +132,26 @@ p {
 		font-size: 1.5rem;
 	}
 }
+
+@media (width >=1440px) {
+	#home {
+		height: 47rem;
+	}
+
+	.homeContainer {
+		width: 40rem;
+	}
+
+	h1 {
+		font-size: 5rem;
+	}
+
+	p {
+		font-size: 1.75rem;
+	}
+
+	.plants {
+		height: 25rem;
+	}
+}
 </style>

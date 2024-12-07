@@ -129,4 +129,23 @@ img {
 		font-size: 1.5rem;
 	}
 }
+
+@media (width >=1440px) {
+	section {
+		padding: 4rem 0;
+	}
+
+	h2 {
+		font-size: 3rem;
+	}
+
+	p {
+		font-size: 1.75rem;
+	}
+
+	img {
+		height: 50rem;
+		top: -23rem;
+	}
+}
 </style>

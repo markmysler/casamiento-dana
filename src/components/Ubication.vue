@@ -106,4 +106,37 @@ iframe {
     font-size: 1.5rem;
   }
 }
+
+@media (width >=1440px) {
+  section {
+    padding: 4rem 0;
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
+
+  p {
+    font-size: 1.5rem;
+  }
+
+  p:first-of-type {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+
+  .googleMaps {
+    width: 70%;
+    max-width: 1010px;
+  }
+
+  .googleMaps iframe {
+    height: 32rem;
+  }
+
+  .googleMaps iframe {
+    border-radius: 18px;
+  }
+}
 </style>

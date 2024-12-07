@@ -236,4 +236,26 @@ img {
 		gap: 0.75rem;
 	}
 }
+
+@media (width >=1080px) {
+	form {
+		max-width: 800px;
+		padding: 4rem;
+	}
+}
+
+@media (width >=1440px) {
+	form {
+		max-width: 900px;
+		padding: 5rem;
+	}
+
+	form div {
+		gap: 1rem;
+	}
+
+	label {
+		font-size: 1.25rem;
+	}
+}
 </style>
