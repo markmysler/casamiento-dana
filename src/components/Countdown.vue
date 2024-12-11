@@ -1,5 +1,5 @@
 <template>
-	<section>
+	<section class="bgCover">
 		<div class="timesContainer" v-if="timeRemaining">
 			<div class="timebox">
 				<div class="time columnAlignCenter">
@@ -95,7 +95,7 @@ export default {
 
 <style scoped>
 section {
-	background-color: #bcb398;
+	background-image: url('../assets/fondoCountdown.svg');
 	border-top: 4px solid #d9d6c3;
 	border-right: 0;
 	border-left: 0;

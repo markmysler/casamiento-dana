@@ -1,5 +1,5 @@
 <template>
-	<section id="home">
+	<section class="bgCover" id="home">
 		<div class="homeContainer">
 			<h1>Dana&nbsp;&&nbsp;Ivan</h1>
 			<p>¡NOS CASAMOS!</p>
@@ -17,7 +17,7 @@ section {
 	justify-content: center;
 	position: relative;
 	z-index: 100;
-	background: #8c8c56;
+	background-image: url('../assets/fondoHero.svg');
 }
 
 .background {

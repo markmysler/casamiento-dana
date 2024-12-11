@@ -1,5 +1,5 @@
 <template>
-	<section class="columnAlignCenter" id="confirmation">
+	<section class="columnAlignCenter bgCover" id="confirmation">
 		<h2>¿<span>Venís</span> ?</h2>
 		<p class="text-center">NOS ENCANTARÍA COMPARTIRLO CON VOS</p>
 		<button class="botonPrimario" @click="handleClick">
@@ -36,7 +36,7 @@ section {
 	position: relative;
 	z-index: 100;
 	padding: 2rem 0;
-	background: #F5F9ED;
+	background-image: url('../assets/fondoComing.svg');
 	border-top: 4px solid #9ea08d;
 }
 
@@ -98,7 +98,7 @@ button {
 	}
 
 	button {
-    padding: 0.75rem 1rem;
+		padding: 0.75rem 1rem;
 	}
 
 	.plants {
@@ -120,7 +120,8 @@ button {
 		border-width: 8px;
 	}
 
-	h2, h2 span {
+	h2,
+	h2 span {
 		font-size: 2.5rem;
 		margin-bottom: 0;
 	}
@@ -144,7 +145,8 @@ button {
 		padding: 3rem 0;
 	}
 
-	h2, h2 span {
+	h2,
+	h2 span {
 		font-size: 2.75rem;
 	}
 
@@ -167,7 +169,8 @@ button {
 		padding: 4rem 0;
 	}
 
-	h2, h2 span {
+	h2,
+	h2 span {
 		font-size: 3rem;
 	}
 
