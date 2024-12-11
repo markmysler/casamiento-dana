@@ -14,7 +14,8 @@
 
 			<div>
 				<label for="pregunta" class="tituloPregunta"
-					>¿TENÉS ALGUNA PREGUNTA?</label
+					>¿TENÉS ALGUNA PREGUNTA?
+					<small> Se puede omitir</small></label
 				>
 				<input type="text" id="pregunta" v-model="pregunta" />
 			</div>
@@ -48,14 +49,18 @@
 import RadioButton from "primevue/radiobutton";
 import AutoComplete from "primevue/autocomplete";
 import InputText from "primevue/inputtext";
-import { invitados } from "../invitados";
 import { searchInvitados } from "../utils/searchInvitados";
 import AssistanceForm from "./AssistanceForm.vue";
 import Divider from "primevue/divider";
+import { useGuestStore } from "../stores";
+import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
+import { db } from "../firebase/init";
+import { saveToLocalStorage } from "../utils/localStorage";
 
 export default {
 	data() {
 		return {
+			store: useGuestStore,
 			formularios: [
 				{
 					nombre: "",
@@ -73,8 +78,8 @@ export default {
 				{ name: "Kosher", key: "Kosher" },
 				{ name: "Otro", key: "Otro" },
 			],
-			invitados_original: [...invitados],
-			lista_invitados: [...invitados],
+			invitados_original: [],
+			lista_invitados: [],
 			pregunta: "",
 		};
 	},
@@ -85,8 +90,45 @@ export default {
 				this.nombre_familiar
 			);
 		},
-		enviarRsvp() {
-			console.log(this.formularios);
+		async enviarRsvp() {
+			const col = collection(db, "guests");
+			this.formularios.forEach(async (formulario) => {
+				const invitado_index = this.store.invitados.findIndex(
+					(inv) => inv.fullname === formulario.nombre
+				);
+				if (invitado_index === -1) {
+					console.log("Error: invitado ya envio su confirmacion");
+					return;
+				} else {
+					const ref = doc(
+						col,
+						this.store.invitados[invitado_index].id
+					);
+					await updateDoc(ref, {
+						rsvp: true,
+						data: formulario,
+					}).catch((error) => {
+						console.log(error);
+					});
+				}
+			});
+
+			localStorage.clear();
+
+			if (this.pregunta.length > 0) {
+				const preguntasRef = collection(db, "preguntas");
+				await addDoc(preguntasRef, {
+					nombre: this.formularios[0].nombre,
+					pregunta: this.pregunta,
+				})
+					.then((res) => {
+						alert("Confirmado!");
+						location.reload();
+					})
+					.catch((error) => {
+						console.log(error);
+					});
+			}
 		},
 		updateForm(index, newForm) {
 			this.formularios[index] = newForm;
@@ -105,6 +147,14 @@ export default {
 			});
 
 			return incomplete_forms.length === 0;
+		},
+		updateLocalForms() {
+			this.lista_invitados = this.store.invitados.map(
+				(inv) => inv.fullname
+			);
+			this.invitados_original = this.store.invitados.map(
+				(inv) => inv.fullname
+			);
 		},
 	},
 	components: {
@@ -132,6 +182,9 @@ export default {
 				}
 			},
 		},
+	},
+	mounted() {
+		this.updateLocalForms();
 	},
 };
 </script>

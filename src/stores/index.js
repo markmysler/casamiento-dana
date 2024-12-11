@@ -1,10 +1,10 @@
-import { createStore } from 'vuex'
+import { createStore } from "vuex";
 
 // Create a new store instance.
-export const store = createStore({
-  state () {
-    return {
-      count: 0
-    }
-  }
-})
+export const useGuestStore = createStore({
+	state() {
+		return {
+			invitados: [],
+		};
+	},
+});

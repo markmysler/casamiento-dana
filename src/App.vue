@@ -25,6 +25,11 @@ import Ubication from "./components/Ubication.vue";
 import Coming from "./components/Coming.vue";
 import Assistance from "./components/Assistance.vue";
 import { ref, nextTick } from "vue";
+import { onMounted } from "vue";
+import { useGuestStore } from "./stores";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "./firebase/init";
+import { fetchGuests } from "./utils/localStorage";
 
 const showForm = ref(false);
 const hiddenSection = ref(null);
@@ -43,6 +48,11 @@ function toggleShowForm() {
 		hiddenSection.value?.$el.classList.add("hidden-section");
 	}
 }
+
+onMounted(async () => {
+	const guests = await fetchGuests();
+	useGuestStore.invitados = guests;
+});
 </script>
 
 <style>

@@ -4,10 +4,22 @@
 		<label for="nombre" class="tituloPregunta">{{
 			index == 0 ? "NOMBRE" : `NOMBRE FAMILIAR ${index}`
 		}}</label>
-		<AutoComplete inputId="nombre" :suggestions="localInvitados" @complete="updateInvitados"
-			v-model="localFormulario.nombre" />
-		<Button icon="pi pi-times" severity="danger" text rounded aria-label="Cancel" class="removeButton"
-			@click="$emit('remove', index)" v-if="index != 0" />
+		<AutoComplete
+			inputId="nombre"
+			:suggestions="localInvitados"
+			@complete="updateInvitados"
+			v-model="localFormulario.nombre"
+		/>
+		<Button
+			icon="pi pi-times"
+			severity="danger"
+			text
+			rounded
+			aria-label="Cancel"
+			class="removeButton"
+			@click="$emit('remove', index)"
+			v-if="index != 0"
+		/>
 	</div>
 	<div>
 		<p class="tituloPregunta">
@@ -19,11 +31,19 @@
 		</p>
 		<div>
 			<div class="radioContainer">
-				<RadioButton inputId="si" v-model="localFormulario.asistencia" value="si" />
+				<RadioButton
+					inputId="si"
+					v-model="localFormulario.asistencia"
+					value="si"
+				/>
 				<label for="si">Sí</label>
 			</div>
 			<div class="radioContainer">
-				<RadioButton inputId="no" v-model="localFormulario.asistencia" value="no" />
+				<RadioButton
+					inputId="no"
+					v-model="localFormulario.asistencia"
+					value="no"
+				/>
 				<label for="no">No</label>
 			</div>
 		</div>
@@ -32,19 +52,35 @@
 		<p class="tituloPregunta">RESTRICCIÓN ALIMENTARIA</p>
 		<div>
 			<div class="radioContainer">
-				<RadioButton inputId="ninguna" v-model="localFormulario.restriccion" value="ninguna" />
+				<RadioButton
+					inputId="ninguna"
+					v-model="localFormulario.restriccion"
+					value="ninguna"
+				/>
 				<label for="ninguna">Ninguna</label>
 			</div>
 			<div class="radioContainer">
-				<RadioButton inputId="celiaco" v-model="localFormulario.restriccion" value="celiaco" />
+				<RadioButton
+					inputId="celiaco"
+					v-model="localFormulario.restriccion"
+					value="celiaco"
+				/>
 				<label for="celiaco">Celíaco</label>
 			</div>
 			<div class="radioContainer">
-				<RadioButton inputId="vegetariano" v-model="localFormulario.restriccion" value="vegetariano" />
+				<RadioButton
+					inputId="vegetariano"
+					v-model="localFormulario.restriccion"
+					value="vegetariano"
+				/>
 				<label for="vegetariano">Vegetariano</label>
 			</div>
 			<div class="radioContainer">
-				<RadioButton inputId="kosher" v-model="localFormulario.restriccion" value="kosher" />
+				<RadioButton
+					inputId="kosher"
+					v-model="localFormulario.restriccion"
+					value="kosher"
+				/>
 				<label for="kosher">Kosher</label>
 			</div>
 		</div>
@@ -55,15 +91,27 @@
 		</p>
 		<div>
 			<div class="radioContainer">
-				<RadioButton inputId="si" v-model="localFormulario.micro" value="si" />
+				<RadioButton
+					inputId="si"
+					v-model="localFormulario.micro"
+					value="si"
+				/>
 				<label for="si">Sí</label>
 			</div>
 			<div class="radioContainer">
-				<RadioButton inputId="no" v-model="localFormulario.micro" value="no" />
+				<RadioButton
+					inputId="no"
+					v-model="localFormulario.micro"
+					value="no"
+				/>
 				<label for="no">No</label>
 			</div>
 			<div class="radioContainer">
-				<RadioButton inputId="nose" v-model="localFormulario.micro" value="nose" />
+				<RadioButton
+					inputId="nose"
+					v-model="localFormulario.micro"
+					value="nose"
+				/>
 				<label for="nose">Todavía no sé</label>
 			</div>
 		</div>
@@ -75,9 +123,9 @@ import RadioButton from "primevue/radiobutton";
 import AutoComplete from "primevue/autocomplete";
 import InputText from "primevue/inputtext";
 import Divider from "primevue/divider";
-import { invitados } from "../invitados";
 import { searchInvitados } from "../utils/searchInvitados";
 import Button from "primevue/button";
+import { useGuestStore } from "../stores";
 
 export default {
 	props: {
@@ -86,8 +134,9 @@ export default {
 	},
 	data() {
 		return {
+			store: useGuestStore,
 			localFormulario: { ...this.formulario },
-			localInvitados: [...invitados],
+			localInvitados: [],
 		};
 	},
 	watch: {
@@ -123,6 +172,9 @@ export default {
 		Button,
 	},
 	emits: ["update_form", "remove"],
+	mounted() {
+		this.localInvitados = this.store.invitados.map((inv) => inv.fullname);
+	},
 };
 </script>
 
@@ -157,31 +209,37 @@ p {
 }
 
 @media (width >=600px) {
-	.nameInput, div {
+	.nameInput,
+	div {
 		gap: 0.5rem;
 	}
 
-	label, p {
+	label,
+	p {
 		font-size: 1rem;
 	}
 }
 
 @media (width >=900px) {
-	.nameInput, div {
+	.nameInput,
+	div {
 		gap: 0.75rem;
 	}
 
-	label, p {
+	label,
+	p {
 		font-size: 1.125rem;
 	}
 }
 
 @media (width >=1440px) {
-	.nameInput, div {
+	.nameInput,
+	div {
 		gap: 1rem;
 	}
 
-	label, p {
+	label,
+	p {
 		font-size: 1.25rem;
 	}
 }
