@@ -2,7 +2,7 @@
 	<section class="columnAlignCenter" id="information">
 		<h2 class="column">Forever <span>& Always</span></h2>
 		<div>
-			<p class="text-center">23 DE FEBRERO DEL 2025 | 11:30 HS</p>
+			<p class="text-center">23 DE FEBRERO DEL 2025 | 12:00 HS</p>
 			<div>
 				<button class="botonPrimario" @click="addToGoogleCalendar">
 					AGENDAR
@@ -40,7 +40,7 @@ section {
 	position: relative;
 }
 
-section>div {
+section > div {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -98,9 +98,9 @@ img {
 }
 
 @media (width >=900px) {
-  h2 {
-    font-size: 2.5rem;
-  }
+	h2 {
+		font-size: 2.5rem;
+	}
 
 	section div {
 		gap: 2rem;
