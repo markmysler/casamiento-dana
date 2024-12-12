@@ -5,7 +5,6 @@
 			<p>¡NOS CASAMOS!</p>
 		</div>
 		<img class="plants" src="../assets/plants_bottom.svg" alt="Plants" />
-		<img class="background" src="../assets/background.svg" alt="Fondo venis">
 	</section>
 </template>
 
