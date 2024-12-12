@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import footerSrc from "./assets/footer.svg";
+import footerSrc from "./assets/footer.png";
 import Header from "./components/Header.vue";
 import Home from "./components/Home.vue";
 import Information from "./components/Information.vue";
@@ -27,8 +27,6 @@ import Assistance from "./components/Assistance.vue";
 import { ref, nextTick } from "vue";
 import { onMounted } from "vue";
 import { useGuestStore } from "./stores";
-import { collection, getDocs, query, where } from "firebase/firestore";
-import { db } from "./firebase/init";
 import { fetchGuests } from "./utils/localStorage";
 
 const showForm = ref(false);

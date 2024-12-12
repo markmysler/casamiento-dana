@@ -16,7 +16,7 @@ section {
 	justify-content: center;
 	position: relative;
 	z-index: 100;
-	background-image: url('../assets/fondoHero.svg');
+	background-image: url("../assets/fondoHero.png");
 }
 
 .background {
@@ -100,7 +100,8 @@ p {
 		gap: 2rem;
 	}
 
-	h1, p {
+	h1,
+	p {
 		position: static;
 		transform: translate(0);
 	}

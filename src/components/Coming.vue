@@ -5,7 +5,11 @@
 		<button class="botonPrimario" @click="handleClick">
 			{{ isOpen ? "CANCELAR" : "CONFIRMAR ASISTENCIA" }}
 		</button>
-		<img class="plants" src="../assets/plants_left .svg" alt="Plantas decorativas" />
+		<img
+			class="plants"
+			src="../assets/plants_left .svg"
+			alt="Plantas decorativas"
+		/>
 	</section>
 </template>
 
@@ -15,9 +19,6 @@ export default {
 		return {
 			isOpen: false,
 		};
-	},
-	props: {
-		toggleShowForm: Function,
 	},
 	methods: {
 		handleClick(event) {
@@ -35,7 +36,7 @@ section {
 	position: relative;
 	z-index: 100;
 	padding: 2rem 0;
-	background-image: url('../assets/fondoComing.svg');
+	background-image: url("../assets/fondoComing.png");
 	border-top: 4px solid #9ea08d;
 }
 
@@ -48,7 +49,7 @@ section {
 	top: 0;
 	z-index: 0;
 	object-fit: cover;
-	background: #F5F9ED;
+	background: #f5f9ed;
 }
 
 h2 {

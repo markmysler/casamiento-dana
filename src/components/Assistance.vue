@@ -55,7 +55,7 @@ import Divider from "primevue/divider";
 import { useGuestStore } from "../stores";
 import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase/init";
-import { saveToLocalStorage } from "../utils/localStorage";
+import Swal from "sweetalert2";
 
 export default {
 	data() {
@@ -123,7 +123,17 @@ export default {
 				})
 					.then((res) => {
 						alert("Confirmado!");
-						location.reload();
+						Swal.fire({
+							title: "Confirmado!",
+							text: "Se envio el formulario!",
+							icon: "success",
+							showCancelButton: false,
+							confirmButtonText: "Volver",
+						}).then((res) => {
+							if (res.isConfirmed || res.isDenied) {
+								location.reload();
+							}
+						});
 					})
 					.catch((error) => {
 						console.log(error);
@@ -184,12 +194,17 @@ export default {
 		},
 	},
 	mounted() {
+		console.log(document.URL);
+
 		this.updateLocalForms();
 	},
 };
 </script>
 
 <style>
+.swal2-confirm {
+	background-color: #8c8c56;
+}
 .formAssistance .p-inputtext,
 .formAssistance input {
 	width: 100%;

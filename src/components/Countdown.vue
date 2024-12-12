@@ -95,7 +95,7 @@ export default {
 
 <style scoped>
 section {
-	background-image: url('../assets/fondoCountdown.svg');
+	background-image: url("../assets/fondoCountdown.png");
 	border-top: 4px solid #d9d6c3;
 	border-right: 0;
 	border-left: 0;
