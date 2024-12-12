@@ -6,7 +6,6 @@
 			{{ isOpen ? "CANCELAR" : "CONFIRMAR ASISTENCIA" }}
 		</button>
 		<img class="plants" src="../assets/plants_left .svg" alt="Plantas decorativas" />
-		<img class="background" src="../assets/background.svg" alt="Fondo venis">
 	</section>
 </template>
 
