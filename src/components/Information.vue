@@ -18,8 +18,8 @@ export default {
 	methods: {
 		addToGoogleCalendar() {
 			const eventTitle = encodeURIComponent("Casamiento de Ivan y Dana");
-			const startDate = "20250223T143000Z";
-			const endDate = "20250224T020000Z";
+			const startDate = "20250223T150000Z";
+			const endDate = "20250224T000000Z";
 			const description = encodeURIComponent(
 				"Venite a la fiesta, no seas cagon."
 			);
