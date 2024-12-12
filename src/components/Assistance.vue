@@ -120,25 +120,21 @@ export default {
 				await addDoc(preguntasRef, {
 					nombre: this.formularios[0].nombre,
 					pregunta: this.pregunta,
-				})
-					.then((res) => {
-						alert("Confirmado!");
-						Swal.fire({
-							title: "Confirmado!",
-							text: "Se envio el formulario!",
-							icon: "success",
-							showCancelButton: false,
-							confirmButtonText: "Volver",
-						}).then((res) => {
-							if (res.isConfirmed || res.isDenied) {
-								location.reload();
-							}
-						});
-					})
-					.catch((error) => {
-						console.log(error);
-					});
+				}).catch((error) => {
+					console.log(error);
+				});
 			}
+			Swal.fire({
+				title: "Confirmado!",
+				text: "Se envio el formulario!",
+				icon: "success",
+				showCancelButton: false,
+				confirmButtonText: "Volver",
+			}).then((res) => {
+				if (res.isConfirmed || res.isDenied) {
+					location.reload();
+				}
+			});
 		},
 		updateForm(index, newForm) {
 			this.formularios[index] = newForm;
@@ -194,8 +190,6 @@ export default {
 		},
 	},
 	mounted() {
-		console.log(document.URL);
-
 		this.updateLocalForms();
 	},
 };
