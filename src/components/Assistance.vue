@@ -53,7 +53,13 @@ import { searchInvitados } from "../utils/searchInvitados";
 import AssistanceForm from "./AssistanceForm.vue";
 import Divider from "primevue/divider";
 import { useGuestStore } from "../stores";
-import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
+import {
+	addDoc,
+	collection,
+	doc,
+	updateDoc,
+	serverTimestamp,
+} from "firebase/firestore";
 import { db } from "../firebase/init";
 import Swal from "sweetalert2";
 
@@ -107,6 +113,7 @@ export default {
 					await updateDoc(ref, {
 						rsvp: true,
 						data: formulario,
+						sentAt: serverTimestamp(),
 					}).catch((error) => {
 						console.log(error);
 					});
@@ -120,6 +127,7 @@ export default {
 				await addDoc(preguntasRef, {
 					nombre: this.formularios[0].nombre,
 					pregunta: this.pregunta,
+					createdAt: serverTimestamp(),
 				}).catch((error) => {
 					console.log(error);
 				});
