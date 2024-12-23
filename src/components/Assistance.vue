@@ -231,6 +231,12 @@ export default {
 	border: 1px solid #545438;
 	border-radius: 999px;
 }
+.p-dropdown-filter {
+	padding-left: 2rem;
+}
+.p-dropdown-panel .p-dropdown-header .p-dropdown-filter-icon {
+	top: 0.4rem;
+}
 </style>
 
 <style scoped>
