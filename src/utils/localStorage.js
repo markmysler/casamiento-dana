@@ -7,11 +7,9 @@ const CACHE_DURATION = 15 * 60 * 1000; // 15 minutes in milliseconds
 async function fetchGuests() {
 	const cachedGuests = loadFromLocalStorage(CACHE_KEY, CACHE_DURATION);
 	if (cachedGuests) {
-		console.log("Using cached data");
 		return cachedGuests;
 	}
 
-	console.log("Fetching data from Firestore");
 	const q = query(collection(db, "guests"), where("rsvp", "==", false));
 	const querySnapshot = await getDocs(q);
 	const guests = querySnapshot.docs.map((doc) => ({
