@@ -4,11 +4,13 @@
 		<label for="nombre" class="tituloPregunta">{{
 			index == 0 ? "NOMBRE" : `NOMBRE FAMILIAR ${index}`
 		}}</label>
-		<AutoComplete
+		<Dropdown
 			inputId="nombre"
-			:suggestions="localInvitados"
-			@complete="updateInvitados"
+			:options="localInvitados"
 			v-model="localFormulario.nombre"
+			placeholder="Seleccionar"
+			filter
+			class="d-flex flex-row border-1 rounded-pill"
 		/>
 		<Button
 			icon="pi pi-times"
@@ -120,12 +122,11 @@
 
 <script>
 import RadioButton from "primevue/radiobutton";
-import AutoComplete from "primevue/autocomplete";
 import InputText from "primevue/inputtext";
 import Divider from "primevue/divider";
-import { searchInvitados } from "../utils/searchInvitados";
 import Button from "primevue/button";
 import { useGuestStore } from "../stores";
+import Dropdown from "primevue/dropdown";
 
 export default {
 	props: {
@@ -157,19 +158,13 @@ export default {
 		updateFormulario() {
 			this.$emit("update_form", this.index, this.localFormulario);
 		},
-		updateInvitados(event) {
-			this.localInvitados = searchInvitados(
-				event,
-				this.localFormulario.nombre
-			);
-		},
 	},
 	components: {
 		RadioButton,
-		AutoComplete,
 		InputText,
 		Divider,
 		Button,
+		Dropdown,
 	},
 	emits: ["update_form", "remove"],
 	mounted() {

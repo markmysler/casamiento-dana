@@ -24,12 +24,13 @@
 				<label for="confirmarFamiliar" class="tituloPregunta"
 					>CONFIRMAR POR UN FAMILIAR</label
 				>
-
-				<AutoComplete
-					id="confirmarFamiliar"
-					:suggestions="invitados_original"
-					@complete="updateInvitados"
+				<Dropdown
+					inputId="confirmarFamiliar"
+					:options="invitados_original"
 					v-model="nombre_familiar"
+					placeholder="Seleccionar familiar"
+					filter
+					class="d-flex flex-row border-1 rounded-pill"
 					:disabled="!areFormsComplete()"
 				/>
 			</div>
@@ -47,9 +48,7 @@
 
 <script>
 import RadioButton from "primevue/radiobutton";
-import AutoComplete from "primevue/autocomplete";
 import InputText from "primevue/inputtext";
-import { searchInvitados } from "../utils/searchInvitados";
 import AssistanceForm from "./AssistanceForm.vue";
 import Divider from "primevue/divider";
 import { useGuestStore } from "../stores";
@@ -62,6 +61,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase/init";
 import Swal from "sweetalert2";
+import Dropdown from "primevue/dropdown";
 
 export default {
 	data() {
@@ -90,12 +90,6 @@ export default {
 		};
 	},
 	methods: {
-		updateInvitados(event) {
-			this.invitados_original = searchInvitados(
-				event,
-				this.nombre_familiar
-			);
-		},
 		async enviarRsvp() {
 			const col = collection(db, "guests");
 			this.formularios.forEach(async (formulario) => {
@@ -172,11 +166,11 @@ export default {
 		},
 	},
 	components: {
-		AutoComplete,
 		InputText,
 		RadioButton,
 		AssistanceForm,
 		Divider,
+		Dropdown,
 	},
 	watch: {
 		nombre_familiar: {
@@ -227,6 +221,15 @@ export default {
 .tituloPregunta {
 	font-size: 0.85rem;
 	font-weight: 600;
+}
+.p-dropdown-label {
+	border: none !important;
+}
+.p-dropdown {
+	width: 100%;
+	background: none;
+	border: 1px solid #545438;
+	border-radius: 999px;
 }
 </style>
 
