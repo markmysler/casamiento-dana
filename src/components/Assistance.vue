@@ -94,76 +94,70 @@ export default {
 			try {
 				const col = collection(db, "guests");
 
-				// Process all formularios and update RSVPs
-				await Promise.all(
-					this.formularios.map(async (formulario) => {
-						const invitado_index = this.store.invitados.findIndex(
-							(inv) => inv.fullname == formulario.nombre
+				// Validate all forms first
+				for (const formulario of this.formularios) {
+					const invitado_index = this.store.invitados.findIndex(
+						(inv) => inv.fullname == formulario.nombre
+					);
+
+					if (invitado_index == -1) {
+						throw new Error(
+							`Invitado ${formulario.nombre} ya envió su confirmación`
 						);
+					}
+				}
 
-						if (invitado_index == -1) {
-							this.throwError(
-								"Error en el formulario",
-								"invitado ya envió su confirmación"
-							);
-							return; // Skip to next iteration
-						}
-						const ref = doc(
-							col,
-							this.store.invitados[invitado_index].id
-						);
+				// Then process all updates
+				const updates = this.formularios.map(async (formulario) => {
+					const invitado_index = this.store.invitados.findIndex(
+						(inv) => inv.fullname == formulario.nombre
+					);
 
-						// Update RSVP for the guest
-						await updateDoc(ref, {
-							rsvp: true,
-							data: formulario,
-							sentAt: serverTimestamp(),
-						}).catch((error) => {
-							this.throwError(
-								"Error updating document",
-								JSON.stringify(error)
-							);
-							return;
-						});
-					})
-				);
-				// Clear localStorage
-				localStorage.clear();
+					const ref = doc(
+						col,
+						this.store.invitados[invitado_index].id
+					);
 
-				// Handle pregunta if provided
+					// Return the promise to be handled by Promise.all
+					return updateDoc(ref, {
+						rsvp: true,
+						data: formulario,
+						sentAt: serverTimestamp(),
+					});
+				});
+
+				// Wait for all updates to complete
+				await Promise.all(updates);
+
+				// Handle pregunta if exists
 				if (this.pregunta.length > 0) {
 					const preguntasRef = collection(db, "preguntas");
 					await addDoc(preguntasRef, {
 						nombre: this.formularios[0].nombre,
 						pregunta: this.pregunta,
 						createdAt: serverTimestamp(),
-					}).catch((error) => {
-						this.throwError(
-							"Error adding pregunta: ",
-							JSON.stringify(error)
-						);
-						return;
 					});
 				}
 
-				// Show confirmation alert
+				// Clear cache and show success
+				localStorage.clear();
 				await Swal.fire({
 					title: "Confirmado!",
 					text: "Se envió el formulario!",
 					icon: "success",
 					showCancelButton: false,
 					confirmButtonText: "Volver",
-				}).then((res) => {
-					if (res.isConfirmed || res.isDenied) {
-						location.reload();
-					}
 				});
+
+				location.reload();
 			} catch (error) {
-				this.throwError(
-					"Unexpected error in enviarRsvp: ",
-					JSON.stringify(error)
-				);
-				return;
+				await Swal.fire({
+					title: "Error en el formulario",
+					text: error.message || "No se pudo enviar la confirmación",
+					icon: "error",
+					showCancelButton: false,
+					confirmButtonText: "Atras",
+				});
 			}
 		},
 
@@ -192,15 +186,6 @@ export default {
 			this.invitados_original = this.store.invitados.map(
 				(inv) => inv.fullname
 			);
-		},
-		throwError(title, text) {
-			Swal.fire({
-				title: title,
-				text: text,
-				icon: "error",
-				showCancelButton: false,
-				confirmButtonText: "Atras",
-			});
 		},
 	},
 	components: {
