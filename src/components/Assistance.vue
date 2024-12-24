@@ -91,53 +91,69 @@ export default {
 	},
 	methods: {
 		async enviarRsvp() {
-			const col = collection(db, "guests");
-			this.formularios.forEach(async (formulario) => {
-				const invitado_index = this.store.invitados.findIndex(
-					(inv) => inv.fullname === formulario.nombre
+			try {
+				const col = collection(db, "guests");
+
+				// Process all formularios and update RSVPs
+				await Promise.all(
+					this.formularios.map(async (formulario) => {
+						const invitado_index = this.store.invitados.findIndex(
+							(inv) => inv.fullname === formulario.nombre
+						);
+
+						if (invitado_index === -1) {
+							console.log(
+								"Error: invitado ya envió su confirmación"
+							);
+							return; // Skip to next iteration
+						}
+						const ref = doc(
+							col,
+							this.store.invitados[invitado_index].id
+						);
+
+						// Update RSVP for the guest
+						await updateDoc(ref, {
+							rsvp: true,
+							data: formulario,
+							sentAt: serverTimestamp(),
+						}).catch((error) => {
+							console.error("Error updating document:", error);
+						});
+					})
 				);
-				if (invitado_index === -1) {
-					console.log("Error: invitado ya envio su confirmacion");
-					return;
-				} else {
-					const ref = doc(
-						col,
-						this.store.invitados[invitado_index].id
-					);
-					await updateDoc(ref, {
-						rsvp: true,
-						data: formulario,
-						sentAt: serverTimestamp(),
+				// Clear localStorage
+				localStorage.clear();
+
+				// Handle pregunta if provided
+				if (this.pregunta.length > 0) {
+					const preguntasRef = collection(db, "preguntas");
+					await addDoc(preguntasRef, {
+						nombre: this.formularios[0].nombre,
+						pregunta: this.pregunta,
+						createdAt: serverTimestamp(),
 					}).catch((error) => {
-						console.log(error);
+						console.error("Error adding pregunta:", error);
 					});
 				}
-			});
 
-			localStorage.clear();
-
-			if (this.pregunta.length > 0) {
-				const preguntasRef = collection(db, "preguntas");
-				await addDoc(preguntasRef, {
-					nombre: this.formularios[0].nombre,
-					pregunta: this.pregunta,
-					createdAt: serverTimestamp(),
-				}).catch((error) => {
-					console.log(error);
+				// Show confirmation alert
+				await Swal.fire({
+					title: "Confirmado!",
+					text: "Se envió el formulario!",
+					icon: "success",
+					showCancelButton: false,
+					confirmButtonText: "Volver",
+				}).then((res) => {
+					if (res.isConfirmed || res.isDenied) {
+						location.reload();
+					}
 				});
+			} catch (error) {
+				console.error("Unexpected error in enviarRsvp:", error);
 			}
-			Swal.fire({
-				title: "Confirmado!",
-				text: "Se envio el formulario!",
-				icon: "success",
-				showCancelButton: false,
-				confirmButtonText: "Volver",
-			}).then((res) => {
-				if (res.isConfirmed || res.isDenied) {
-					location.reload();
-				}
-			});
 		},
+
 		updateForm(index, newForm) {
 			this.formularios[index] = newForm;
 		},
