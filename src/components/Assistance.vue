@@ -98,12 +98,13 @@ export default {
 				await Promise.all(
 					this.formularios.map(async (formulario) => {
 						const invitado_index = this.store.invitados.findIndex(
-							(inv) => inv.fullname === formulario.nombre
+							(inv) => inv.fullname == formulario.nombre
 						);
 
-						if (invitado_index === -1) {
-							console.log(
-								"Error: invitado ya envió su confirmación"
+						if (invitado_index == -1) {
+							this.throwError(
+								"Error en el formulario",
+								"invitado ya envió su confirmación"
 							);
 							return; // Skip to next iteration
 						}
@@ -118,7 +119,11 @@ export default {
 							data: formulario,
 							sentAt: serverTimestamp(),
 						}).catch((error) => {
-							console.error("Error updating document:", error);
+							this.throwError(
+								"Error updating document",
+								JSON.stringify(error)
+							);
+							return;
 						});
 					})
 				);
@@ -133,7 +138,11 @@ export default {
 						pregunta: this.pregunta,
 						createdAt: serverTimestamp(),
 					}).catch((error) => {
-						console.error("Error adding pregunta:", error);
+						this.throwError(
+							"Error adding pregunta: ",
+							JSON.stringify(error)
+						);
+						return;
 					});
 				}
 
@@ -150,7 +159,11 @@ export default {
 					}
 				});
 			} catch (error) {
-				console.error("Unexpected error in enviarRsvp:", error);
+				this.throwError(
+					"Unexpected error in enviarRsvp: ",
+					JSON.stringify(error)
+				);
+				return;
 			}
 		},
 
@@ -179,6 +192,15 @@ export default {
 			this.invitados_original = this.store.invitados.map(
 				(inv) => inv.fullname
 			);
+		},
+		throwError(title, text) {
+			Swal.fire({
+				title: title,
+				text: text,
+				icon: "error",
+				showCancelButton: false,
+				confirmButtonText: "Atras",
+			});
 		},
 	},
 	components: {
